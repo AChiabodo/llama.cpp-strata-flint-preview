@@ -222,37 +222,36 @@ if (NOT WIN32 OR NOT BUILD_SHARED_LIBS)
 
     # llama_build_and_test(test-double-float.cpp) # SLOW
 
-    # TODO: after `test-llama-archs` is refactored to not link internal symbols, we can move all related tests out of
-    #       this branch and run them on all platforms
-    llama_build(test-llama-archs.cpp)
-
-    set(MODEL_DIR "${CMAKE_CURRENT_BINARY_DIR}/test-models/")
-    file(MAKE_DIRECTORY "${MODEL_DIR}")
-
-    llama_test(
-        test-llama-archs
-        NAME test-generate-models
-        LABEL main
-        ARGS -o "${MODEL_DIR}"
-    )
-    set_tests_properties(test-generate-models PROPERTIES
-        FIXTURES_SETUP generate-models
-    )
-
-    # Test context state handling across all architectures, using the generated dummy models
-    llama_test(
-        test-llama-context
-        LABEL main
-        ARGS --models "${MODEL_DIR}"
-    )
-    # abort on graph reallocations that the initial reserve should have covered
-    set_tests_properties(test-llama-context PROPERTIES
-        FIXTURES_REQUIRED generate-models
-        ENVIRONMENT "GGML_SCHED_DEBUG_REALLOC=1"
-    )
-
-    llama_build(test-fusion.cpp)
 endif()
+
+llama_build(test-llama-archs.cpp)
+
+set(MODEL_DIR "${CMAKE_CURRENT_BINARY_DIR}/test-models/")
+file(MAKE_DIRECTORY "${MODEL_DIR}")
+
+llama_test(
+    test-llama-archs
+    NAME test-generate-models
+    LABEL main
+    ARGS -o "${MODEL_DIR}"
+)
+set_tests_properties(test-generate-models PROPERTIES
+    FIXTURES_SETUP generate-models
+)
+
+# Test context state handling across all architectures, using the generated dummy models
+llama_test(
+    test-llama-context
+    LABEL main
+    ARGS --models "${MODEL_DIR}"
+)
+# abort on graph reallocations that the initial reserve should have covered
+set_tests_properties(test-llama-context PROPERTIES
+    FIXTURES_REQUIRED generate-models
+    ENVIRONMENT "GGML_SCHED_DEBUG_REALLOC=1"
+)
+
+llama_build(test-fusion.cpp)
 
 llama_build_and_test(test-chat-peg-parser.cpp peg-parser/simple-tokenize.cpp)
 llama_build_and_test(test-jinja.cpp)
