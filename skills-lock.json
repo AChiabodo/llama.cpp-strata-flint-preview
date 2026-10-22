@@ -19,6 +19,18 @@
       "skillPath": "skills/engineering/codebase-design/SKILL.md",
       "computedHash": "fb1d8ab98ad151551eeade003e3ae55a46578a380fd9fc3ed4dbf9c2fbce0a9f"
     },
+    "cuda-debugging": {
+      "source": "mohitmishra786/low-level-dev-skills",
+      "sourceType": "github",
+      "skillPath": "skills/gpu/cuda-debugging/SKILL.md",
+      "computedHash": "0af7e68336a38084b18a0c4c06c20c72a17588d912215759d3de6c006dc544e6"
+    },
+    "cuda-profiling": {
+      "source": "mohitmishra786/low-level-dev-skills",
+      "sourceType": "github",
+      "skillPath": "skills/gpu/cuda-profiling/SKILL.md",
+      "computedHash": "0a560b8d82878927aa43f1e3ff7cecabbd8038142c6e82dc2a79235fccd75e7b"
+    },
     "diagnosing-bugs": {
       "source": "mattpocock/skills",
       "sourceType": "github",
