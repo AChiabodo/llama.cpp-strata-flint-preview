@@ -1,0 +1,7 @@
+{
+  "skills": [
+    "../skills/add-new-model",
+    "../skills/slice-model",
+    "../skills/update-fusion-table"
+  ]
+}
