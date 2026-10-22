@@ -11,6 +11,25 @@
 
 ---
 
+## Agent skills
+
+This repo is a fork of `ggml-org/llama.cpp` specialised for a single model (the FLINT
+architecture, `src/models/flint.cpp`). `origin` is the fork, `upstream` is `ggml-org/llama.cpp`.
+
+### Issue tracker
+
+Issues live in the fork's GitHub Issues, managed with the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Five canonical roles: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: one `GLOSSARY.md` and one `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+
+---
+
 ## Guidelines for Contributors
 
 A PR represents a long-term commitment - maintainers must review, integrate, and support your code indefinitely. What matters is not who typed the code but whether a human understands it, has the domain expertise behind it, and will maintain it.
